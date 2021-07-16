@@ -9,7 +9,7 @@ extern "C" {
 #include "main.h"
 #include "usart.h"
 
-
+#include "MotorM2006.h"
 
 #define UART_RX_DMA_SIZE (1024)
 #define DBUS_MAX_LEN     (50)
@@ -18,6 +18,7 @@ extern "C" {
 #define TX_BUFF_LEN      (18)
 #endif
 
+extern M2006 m2006;
 /* define DBUS data structures  */
 typedef struct DR16_rc_info
 {

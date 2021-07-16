@@ -3,11 +3,12 @@
 #include "UART_DBUS.h"
 #include "stdarg.h"
 
-#include "MotorM2006.h"
-
+/**** personal max spend *****/
+#define M2006_MAX_SPEND_RQM 440
+/*****************************/
 uint8_t   dbus_buf0[DBUS_BUFLEN];
 uint8_t   dbus_buf1[DBUS_BUFLEN];
-extern M2006 m2006;
+
 DR16_rc_info rc;
 
 /**
@@ -217,11 +218,11 @@ static void dbus_to_rc(DR16_rc_info *rc, uint8_t *dbus_buff)
     rc->kb.key_code = dbus_buff[14] | dbus_buff[15] << 8; // key borad code
     rc->wheel = (dbus_buff[16] | dbus_buff[17] << 8) - 1024;
 }
-
+/******** DR16 's data to M2006 's data ************************/
 void dr16_TO_M2006()
 {
     int16_t ch_spend[M2006::motorNum];
     for(int i = 0;i < M2006::motorNum; i++)
-        ch_spend[i] = rc.ch[i]/660*450;
+        ch_spend[i] = rc.ch[i] / 660 * M2006_MAX_SPEND_RQM;
     m2006.setExpSpeed((int *)ch_spend);
 }
