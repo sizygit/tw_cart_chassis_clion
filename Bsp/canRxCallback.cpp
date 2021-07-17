@@ -11,7 +11,7 @@
 extern M2006 m2006;
 //extern M3508 m3508;
 //extern GM6020 gm6020;
-int rx_spend = 0;
+int16_t rx_spend = 0;
 extern Communication chassisComInfo;
 
 #ifdef __cplusplus
