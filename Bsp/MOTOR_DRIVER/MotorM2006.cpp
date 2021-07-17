@@ -16,6 +16,10 @@ void M2006::initMotor() {
     CAN_Filter_Init(hcan);
     HAL_CAN_Start(hcan);
     HAL_CAN_ActivateNotification(hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
+    hcan = &hcan2;
+    CAN_Filter_Init(hcan);
+    HAL_CAN_Start(hcan);
+    HAL_CAN_ActivateNotification(hcan, CAN_IT_RX_FIFO1_MSG_PENDING);
 }
 
 void M2006::setExpAngle(const int * angle)
