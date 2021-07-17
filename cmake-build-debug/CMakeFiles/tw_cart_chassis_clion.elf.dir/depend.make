@@ -160,6 +160,9 @@ CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/gpio.c.obj: ../Drivers/STM32F4
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/gpio.c.obj: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/gpio.c.obj: ../Core/Src/gpio.c
 
+CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/main.c.obj: ../Algorithms/PID/pid.h
+CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/main.c.obj: ../Bsp/MOTOR_DRIVER/MotorDriver.h
+CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/main.c.obj: ../Bsp/MOTOR_DRIVER/MotorM2006.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/main.c.obj: ../Bsp/UART_DBUS/UART_DBUS.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/main.c.obj: ../Core/Inc/FreeRTOSConfig.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/main.c.obj: ../Core/Inc/can.h
@@ -283,6 +286,9 @@ CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.o
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj: ../Core/Src/stm32f4xx_hal_timebase_tim.c
 
+CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_it.c.obj: ../Algorithms/PID/pid.h
+CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_it.c.obj: ../Bsp/MOTOR_DRIVER/MotorDriver.h
+CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_it.c.obj: ../Bsp/MOTOR_DRIVER/MotorM2006.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_it.c.obj: ../Bsp/UART_DBUS/UART_DBUS.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_it.c.obj: ../Core/Inc/main.h
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_it.c.obj: ../Core/Inc/stm32f4xx_hal_conf.h

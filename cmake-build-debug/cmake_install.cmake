@@ -1,4 +1,4 @@
-# Install script for directory: /home/szy/STM32-files/tw_cart_clion/tw_cart_chassis_clion
+# Install script for directory: /home/szy/STM32-files/tw_cart_chassis_clion
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/szy/STM32-files/tw_cart_clion/tw_cart_chassis_clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/szy/STM32-files/tw_cart_chassis_clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
