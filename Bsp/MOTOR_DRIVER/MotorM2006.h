@@ -8,7 +8,8 @@
 #include "MotorDriver.h"
 
 #ifdef ENABLE_M2006
-#define M2006_MAX_SPEED_RPM 10000
+const int16_t M2006_MAX_SPEED_RPM = 9500;
+
 class M2006 : public Motor
 {
 public:
