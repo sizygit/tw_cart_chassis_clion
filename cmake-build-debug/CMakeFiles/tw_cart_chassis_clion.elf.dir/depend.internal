@@ -161,9 +161,6 @@ CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/gpio.c.obj
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
  /home/szy/STM32-files/tw_cart_chassis_clion/Core/Src/gpio.c
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/main.c.obj
- ../Algorithms/PID/pid.h
- ../Bsp/MOTOR_DRIVER/MotorDriver.h
- ../Bsp/MOTOR_DRIVER/MotorM2006.h
  ../Bsp/UART_DBUS/UART_DBUS.h
  ../Core/Inc/FreeRTOSConfig.h
  ../Core/Inc/can.h
@@ -287,9 +284,6 @@ CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.o
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
  /home/szy/STM32-files/tw_cart_chassis_clion/Core/Src/stm32f4xx_hal_timebase_tim.c
 CMakeFiles/tw_cart_chassis_clion.elf.dir/Core/Src/stm32f4xx_it.c.obj
- ../Algorithms/PID/pid.h
- ../Bsp/MOTOR_DRIVER/MotorDriver.h
- ../Bsp/MOTOR_DRIVER/MotorM2006.h
  ../Bsp/UART_DBUS/UART_DBUS.h
  ../Core/Inc/main.h
  ../Core/Inc/stm32f4xx_hal_conf.h
