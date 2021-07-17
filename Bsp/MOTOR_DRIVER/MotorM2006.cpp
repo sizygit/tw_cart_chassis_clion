@@ -28,7 +28,12 @@ void M2006::setExpAngle(const int * angle)
 void M2006::setExpSpeed(const int * speed)
 {
     for (int i = 0; i < motorNum; ++i) {
-        expSpeed[i] = speed[i];
+        if(speed[i] > M2006_MAX_SPEED_RPM)
+            expSpeed[i] = M2006_MAX_SPEED_RPM;
+        else if(speed[i] < -M2006_MAX_SPEED_RPM)
+            expSpeed[i] = -M2006_MAX_SPEED_RPM;
+        else
+            expSpeed[i] = speed[i];
     }
 }
 
