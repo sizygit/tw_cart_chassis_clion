@@ -5,9 +5,7 @@
 
 #include "MotorM2006.h"
 
-/**** personal max spend *****/
-#define M2006_MAX_SPEND_RQM 440.0
-/*****************************/
+double ch_spend[3] = { 0 , 0 , 0};
 uint8_t   dbus_buf0[DBUS_BUFLEN];
 uint8_t   dbus_buf1[DBUS_BUFLEN];
 
@@ -140,7 +138,6 @@ void dr16_uart_rx_data_handle(void)
             if(this_time_rx_len == DBUS_BUFLEN)
             {
                 dbus_to_rc(&rc, dbus_buf0);
-                dr16_TO_M2006();
             }
         }
         else
@@ -160,7 +157,6 @@ void dr16_uart_rx_data_handle(void)
             {
                 //get dbus data to real data
                 dbus_to_rc(&rc, dbus_buf1);
-                dr16_TO_M2006();
             }
         }
     }
@@ -219,12 +215,20 @@ static void dbus_to_rc(DR16_rc_info *rc, uint8_t *dbus_buff)
 
     rc->kb.key_code = dbus_buff[14] | dbus_buff[15] << 8; // key borad code
     rc->wheel = (dbus_buff[16] | dbus_buff[17] << 8) - 1024;
+    dr16_TO_M2006();
 }
 /******** DR16 's data to M2006 's data ************************/
 void dr16_TO_M2006()
 {
-    int16_t ch_spend[M2006::motorNum];
-    for(int i = 0;i < M2006::motorNum; i++)
-        ch_spend[i] = M2006_MAX_SPEND_RQM * rc.ch[i] / 660.0 ;
-    m2006.setExpSpeed((int *)ch_spend);
+    int ch_spend_int[M2006::motorNum];
+    for(int i = 0;i < M2006::motorNum; i++) {
+        ch_spend[i] = M2006_MAX_SPEED_RPM / 660.0 * rc.ch[i];
+        if(ch_spend[i] >0 && ch_spend[i] < 400)
+            ch_spend[i] = 400;
+        if(ch_spend[i] <0 && ch_spend[i] > -400)
+            ch_spend[i] = -400;
+        ch_spend_int[i] = ch_spend[i];
+    }
+
+    m2006.setExpSpeed(ch_spend_int);
 }

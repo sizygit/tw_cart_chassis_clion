@@ -53,15 +53,17 @@ void motor_task()
 {
     //m2006.updateExpCurrent(expCurrent);
 
-//    int speed[4] = {0xFFFF, 0, 0, 0};
+//    int16_t speed[4] = { -700, 0 , 0, 0};
 //    m2006.updateExpSpeed(speed);
 //    gm6020.initMotor();
     //snail2305.initMotor();
     m2006.initMotor();
-    HAL_GPIO_WritePin(LED_G_GPIO_Port,LED_B_Pin,GPIO_PIN_RESET);
+//    m2006.setExpSpeed((int *)speed);
+    m2006.setPID( 1, 0,0.2);
+    HAL_GPIO_WritePin(LED_G_GPIO_Port,LED_B_Pin,GPIO_PIN_SET);
     while (1)
     {
-        //spinCWandCCW();
+//        spinCWandCCW();
 //        m2006.sendControlCmd();
         m2006.calculatePID();
         m2006.sendControlCmd();
