@@ -223,7 +223,7 @@ void dr16_TO_M2006()
     int ch_spend_int[M2006::motorNum];
     for(int i = 0;i < M2006::motorNum; i++) {
         ch_spend[i] = M2006_MAX_SPEED_RPM / 660.0 * rc.ch[i];
-        if(ch_spend[i] >0 && ch_spend[i] < 400)
+        if(ch_spend[i] >0 && ch_spend[i] < 400)      // set deadzone
             ch_spend[i] = 400;
         if(ch_spend[i] <0 && ch_spend[i] > -400)
             ch_spend[i] = -400;

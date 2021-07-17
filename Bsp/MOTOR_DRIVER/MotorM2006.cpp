@@ -12,11 +12,11 @@
 M2006 m2006{};
 
 void M2006::initMotor() {
-    hcan = &hcan1;
+    M2006::setCAN(hcan1);
     CAN_Filter_Init(hcan);
     HAL_CAN_Start(hcan);
     HAL_CAN_ActivateNotification(hcan, CAN_IT_RX_FIFO0_MSG_PENDING);
-    hcan = &hcan2;
+    M2006::setCAN(hcan2);
     CAN_Filter_Init(hcan);
     HAL_CAN_Start(hcan);
     HAL_CAN_ActivateNotification(hcan, CAN_IT_RX_FIFO1_MSG_PENDING);
@@ -44,7 +44,19 @@ void M2006::calculatePID() {
 
 void M2006::sendControlCmd() {
     uint8_t data[8] = {0};
-    for (uint8_t i = 0, j = 0; i < motorNum; i++) {
+    /*for (uint8_t i = 0, j = 0; i < motorNum; i++) {
+        data[j++] = expCurrent[i] >> 8;
+        data[j++] = expCurrent[i];
+    }
+    HAL_CAN_Transmit(hcan, protocolID, data, CAN_DLC);*/
+    M2006::setCAN(hcan1);              // CAN1 transfer to ID(1)... ID(motor_can2_num - 1)
+    for (uint8_t i = 0, j = 0; i < (motor_can2_num - 1); i++) {
+        data[j++] = expCurrent[i] >> 8;
+        data[j++] = expCurrent[i];
+    }
+    HAL_CAN_Transmit(hcan, protocolID, data, CAN_DLC);
+    M2006::setCAN(hcan2);              // CAN2 transfer to ID(motor_can2_num) ...ID(motorNum)
+    for (uint8_t i = (motor_can2_num - 1), j = 0; i < motorNum; i++) {
         data[j++] = expCurrent[i] >> 8;
         data[j++] = expCurrent[i];
     }
@@ -67,4 +79,10 @@ void M2006::setPID(float p, float i, float d)
     speedRingPara.kd = d;
 }
 
+
+
+void M2006::setCAN(CAN_HandleTypeDef set_hcan)
+{
+    m2006.hcan = &set_hcan;
+}
 #endif

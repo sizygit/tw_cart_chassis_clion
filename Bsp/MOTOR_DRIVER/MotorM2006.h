@@ -13,7 +13,8 @@ const double M2006_MAX_SPEED_RPM = 9500;
 class M2006 : public Motor
 {
 public:
-    static const uint8_t motorNum = 1;
+    static const uint8_t motorNum = 3; //(CAN1)ID1 ID2  (CAN2) ID3
+    static const uint8_t motor_can2_num = 3 ;    //ID 1 2 --CAN1   ID 3 --CAN2
     uint32_t protocolID = 0x200;
 
 private:
@@ -39,6 +40,7 @@ public:
     void sendControlCmd() override;
     void updateFeedBackInfo(uint8_t id, const uint8_t* rxData);
     void setPID(float p, float i, float d);
+    void setCAN(CAN_HandleTypeDef set_hcan);    //set used hcan
 };
 
 #endif
