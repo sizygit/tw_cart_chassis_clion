@@ -11,7 +11,9 @@
 extern M2006 m2006;
 //extern M3508 m3508;
 //extern GM6020 gm6020;
-int16_t rx_spend = 0;
+int16_t rx_spend0 = 0;
+int16_t rx_spend1 = 0;
+int16_t rx_spend2 = 0;
 extern Communication chassisComInfo;
 
 #ifdef __cplusplus
@@ -31,7 +33,8 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
         //For m2006
         id = rxHeader.StdId - m2006.protocolID;
         m2006.updateFeedBackInfo(id, rxData);
-        rx_spend = m2006.feedBackInfo.speed[0];
+        rx_spend0 = m2006.feedBackInfo.speed[0];
+        rx_spend1 = m2006.feedBackInfo.speed[1];
         //for m3508
 //        id = rxHeader.StdId - m3508.protocolID;
 //        m2006.updateFeedBackInfo(id, rxData);

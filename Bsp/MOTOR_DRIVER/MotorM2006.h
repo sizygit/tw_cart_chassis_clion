@@ -13,7 +13,7 @@ const double M2006_MAX_SPEED_RPM = 9500;
 class M2006 : public Motor
 {
 public:
-    static const uint8_t motorNum = 1;
+    static const uint8_t motorNum = 3;
     uint32_t protocolID = 0x200;
 
 private:
