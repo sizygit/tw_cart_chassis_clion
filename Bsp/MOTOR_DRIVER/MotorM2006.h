@@ -14,6 +14,8 @@ class M2006 : public Motor
 {
 public:
     static const uint8_t motorNum = 3;
+    //when use two CAN and CAN1 ID is 0 ~ motor_CAN2ID-1,CAN2 ID is motor_CAN2ID ~ motorNum
+    static const uint8_t motor_CAN2ID = 3;
     uint32_t protocolID = 0x200;
 
 private:

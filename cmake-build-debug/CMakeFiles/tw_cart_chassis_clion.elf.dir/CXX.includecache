@@ -10,20 +10,6 @@
 main.h
 ../Algorithms/PID/main.h
 
-../Bsp/Communication/communication.h
-main.h
-../Bsp/Communication/main.h
-
-../Bsp/MOTOR_DRIVER/MotorDriver.h
-main.h
-../Bsp/MOTOR_DRIVER/main.h
-pid.h
-../Bsp/MOTOR_DRIVER/pid.h
-
-../Bsp/MOTOR_DRIVER/MotorM2006.h
-MotorDriver.h
-../Bsp/MOTOR_DRIVER/MotorDriver.h
-
 ../Core/Inc/FreeRTOSConfig.h
 stdint.h
 -
@@ -135,10 +121,6 @@ stm32f4xx_hal_lptim.h
 ../Core/Inc/stm32f4xx_hal_lptim.h
 stm32f4xx_hal_mmc.h
 ../Core/Inc/stm32f4xx_hal_mmc.h
-
-../Core/Inc/usart.h
-main.h
-../Core/Inc/main.h
 
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h
 core_cm4.h
@@ -526,18 +508,6 @@ task.h
 
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h
 
-/home/szy/STM32-files/tw_cart_chassis_clion/Applications/motor_task.cpp
-motor_task.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Applications/motor_task.h
-MotorM2006.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Applications/MotorM2006.h
-FreeRTOS.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Applications/FreeRTOS.h
-cmsis_os.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Applications/cmsis_os.h
-
-/home/szy/STM32-files/tw_cart_chassis_clion/Applications/motor_task.h
-
 /home/szy/STM32-files/tw_cart_chassis_clion/Bsp/MOTOR_DRIVER/MotorDriver.h
 main.h
 /home/szy/STM32-files/tw_cart_chassis_clion/Bsp/MOTOR_DRIVER/main.h
@@ -555,34 +525,4 @@ cmsis_os.h
 /home/szy/STM32-files/tw_cart_chassis_clion/Bsp/MOTOR_DRIVER/MotorM2006.h
 MotorDriver.h
 /home/szy/STM32-files/tw_cart_chassis_clion/Bsp/MOTOR_DRIVER/MotorDriver.h
-
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/UART_DBUS.cpp
-string.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/string.h
-stdlib.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/stdlib.h
-UART_DBUS.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/UART_DBUS.h
-stdarg.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/stdarg.h
-MotorM2006.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/MotorM2006.h
-
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/UART_DBUS.h
-main.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/main.h
-usart.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/UART_DBUS/usart.h
-
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/canRxCallback.cpp
-cmsis_os.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/cmsis_os.h
-can.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/can.h
-main.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/main.h
-MotorM2006.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/MotorM2006.h
-communication.h
-/home/szy/STM32-files/tw_cart_chassis_clion/Bsp/communication.h
 
