@@ -48,13 +48,15 @@ endif ()
 include_directories(${includes}
                     Bsp/UART_DBUS
                     Bsp/MOTOR_DRIVER
-
-
+                    Algorithms/PID
+                    Bsp
+                    Applications
+                    Bsp/Communication
                     )
 
 add_definitions(${defines})
 
-file(GLOB_RECURSE SOURCES ${sources} "Bsp/UART_DBUS/*.*" "Bsp/MOTOR_DRIVER/*.*" )
+file(GLOB_RECURSE SOURCES ${sources} "Bsp/UART_DBUS/*.*" "Bsp/MOTOR_DRIVER/*.*" "Algorithms/PID/*.*" "Bsp/*.*" "Applications/*.*" "Bsp/Communication/*.*")
 
 set(LINKER_SCRIPT $${CMAKE_SOURCE_DIR}/${linkerScript})
 
