@@ -4,7 +4,7 @@
 #include "stdarg.h"
 
 #include "MotorM2006.h"
-
+#include "math.h"
 double ch_spend[3] = { 0 , 0 , 0};
 uint8_t   dbus_buf0[DBUS_BUFLEN];
 uint8_t   dbus_buf1[DBUS_BUFLEN];
@@ -218,9 +218,10 @@ static void dbus_to_rc(DR16_rc_info *rc, uint8_t *dbus_buff)
     dr16_TO_M2006();
 }
 /******** DR16 's data to M2006 's data ************************/
+/********  three wheel cart's control   ***********************/
 void dr16_TO_M2006()
 {
-    int ch_spend_int[M2006::motorNum];
+    /*int ch_spend_int[M2006::motorNum];
     for(int i = 0;i < M2006::motorNum; i++) {
         ch_spend[i] = M2006_MAX_SPEED_RPM / 660.0 * rc.ch[i];
         if(ch_spend[i] >0 && ch_spend[i] < 400)
@@ -230,5 +231,47 @@ void dr16_TO_M2006()
         ch_spend_int[i] = ch_spend[i];
     }
 
+    m2006.setExpSpeed(ch_spend_int); */   //for test
+
+    int ch_spend_int[3] = {0};
+    if(rc.ch[1] != 0){             // RIGHT  forward or back
+        ch_spend[0] = 0;
+        ch_spend[1] = - M2006_MAX_SPEED_RPM / 660.0 * rc.ch[1];
+        ch_spend[2] =   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[1];
+        for(int i = 0;i < 3; i++) {
+            if (ch_spend[i] > 0 && ch_spend[i] < 400)
+                ch_spend[i] = 400;
+            if (ch_spend[i] < 0 && ch_spend[i] > -400)
+                ch_spend[i] = -400;
+            ch_spend_int[i] = ch_spend[i];
+        }
+    }
+    if(rc.ch[0] != 0){             // RIGHT  turn left or right
+        ch_spend[0] +=   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0];
+        ch_spend[1] += - M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0] * 0.5;
+        ch_spend[2] += - M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0] * 0.5;
+        for(int i = 0;i < 3; i++) {
+            if (ch_spend[i] > 0 && ch_spend[i] < 400)
+                ch_spend[i] = 400;
+            if (ch_spend[i] < 0 && ch_spend[i] > -400)
+                ch_spend[i] = -400;
+            ch_spend_int[i] = ch_spend[i];
+        }
+    }
+    if(rc.ch[2] != 0){             // RIGHT  turn left or right
+        ch_spend[0] +=   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[2];
+        ch_spend[1] +=   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[2];
+        ch_spend[2] +=   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[2];
+        for(int i = 0;i < 3; i++) {
+            if (ch_spend[i] > 0 && ch_spend[i] < 400)
+                ch_spend[i] = 400;
+            if (ch_spend[i] < 0 && ch_spend[i] > -400)
+                ch_spend[i] = -400;
+            ch_spend_int[i] = ch_spend[i];
+        }
+    }
     m2006.setExpSpeed(ch_spend_int);
+    for(int i =0;i<3;i++)
+        ch_spend[i] = 0;
+
 }
