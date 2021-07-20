@@ -235,9 +235,9 @@ void dr16_TO_M2006()
 
     int ch_spend_int[3] = {0};
     if(rc.ch[1] != 0){             // RIGHT  forward or back
-        ch_spend[0] = 0;
+        ch_spend[2] = 0;
         ch_spend[1] = - M2006_MAX_SPEED_RPM / 660.0 * rc.ch[1];
-        ch_spend[2] =   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[1];
+        ch_spend[0] =   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[1];
         for(int i = 0;i < 3; i++) {
             if (ch_spend[i] > 0 && ch_spend[i] < 400)
                 ch_spend[i] = 400;
@@ -247,9 +247,9 @@ void dr16_TO_M2006()
         }
     }
     if(rc.ch[0] != 0){             // RIGHT  turn left or right
-        ch_spend[0] +=   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0];
-        ch_spend[1] += - M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0] * 0.5;
-        ch_spend[2] += - M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0] * 0.5;
+        ch_spend[0] +=   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0] * 0.5;
+        ch_spend[1] +=   M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0] * 0.5;
+        ch_spend[2] += - M2006_MAX_SPEED_RPM / 660.0 * rc.ch[0] ;
         for(int i = 0;i < 3; i++) {
             if (ch_spend[i] > 0 && ch_spend[i] < 400)
                 ch_spend[i] = 400;
